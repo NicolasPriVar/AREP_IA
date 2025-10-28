@@ -1,41 +1,96 @@
-# 📘 Proyecto: Prácticas de Inteligencia Artificial con OpenAI, LangChain.
-### Explicación del taller
-Este repositorio contiene distintos ejemplos y guías prácticas para conectar Python con modelos de lenguaje avanzados.
+#  Proyecto Hello AI
+
+Este repositorio contiene varios ejemplos y notebooks introductorios para interactuar con la **API de OpenAI** utilizando Python. El propósito es demostrar cómo inicializar el cliente, enviar prompts y recibir respuestas generadas por modelos de lenguaje como gpt-4o-mini.
 
 ---
 
-## 🧩 Estructura del Proyecto
+##  Estructura General del Proyecto
 
-| Carpeta / Archivo | Descripción |
-|-------------------|-------------|
-| `.env` | Archivo de entorno con la clave privada de OpenAI (no debe subirse a GitHub). |
-| `hello_ai.py` | Ejemplo base de conexión con la API de OpenAI, carga de variables de entorno y generación de texto. |
-| `hello_ai.ipynb` | Guía paso a paso sobre instalación, configuración, parámetros (`temperature`, `max_tokens`, etc.) y ejercicios iniciales con la API. |
-| `guia4_langchain.ipynb` | Introducción práctica a LangChain: prompts, cadenas secuenciales, memoria y buenas prácticas educativas. |
+hello_ai/
+│  
+├── vend/  
+│ ├── Include/  
+│ ├── Lib/  
+│ └── Scripts/  
+│  
+├── .env  
+└── hello_ai.py  
+  
+hello_ai_vscode/  
+│  
+├── .venv/  
+├── .env  
+├── hello_ai.ipynb  
+├── setup_hello_ai.ipynb  
+└── Guia3_IntroAPIsAI_Notebook.ipynb  
+
 
 ---
 
-## ⚙️ Configuración del Entorno
+##  Descripción de Carpetas
 
-### 1️⃣ Instalar dependencias
+### 🗂️ `vend/`
+Esta carpeta contiene un **entorno virtual** creado para aislar las dependencias del proyecto. Se genera con herramientas como `python -m venv vend`.
 
-Ejecuta en tu terminal o notebook:
+Dentro hay tres subcarpetas principales:
 
-pip install openai python-dotenv langchain langchain-openai transformers datasets huggingface_hub tokenizers torch
+- **Include/**  
+  Contiene archivos de cabecera usados internamente por Python y las extensiones.  
+  Se usa cuando se compilan módulos o librerías dependientes de Python.
 
-### 2️⃣ Configurar variables de entorno
+- **Lib/**  
+  Guarda todas las **bibliotecas y paquetes de Python** instalados en el entorno virtual (por ejemplo, openai, dotenv, etc.).  
+  Es el equivalente local al directorio site-packages del sistema.
 
-En el archivo .env ponemos una variable para la clave de OPENAI, en este caso será OPENAI_API_KEY seguido de la clave signada (Esta clave no se debe publicar en GitHub ni en un lugar público)
+- **Scripts/**  
+  Contiene los **ejecutables** asociados al entorno virtual, incluyendo el intérprete de Python y el comando pip.  
+  En Windows, desde aquí se activa el entorno con:  
+  .\vend\Scripts\activate  
+##  Archivos Clave
 
-### 3️⃣ Cargar las variables en Python
+###  .env
+Archivo que guarda variables de entorno confidenciales, como la clave de API de OpenAI.
 
-Dentro de los cuadernos encontramos 
+Este archivo permite mantener la información sensible fuera del código fuente y es cargado automáticamente por el paquete python-dotenv.  
+**Ejemplo:** contiene la variable OPENAI_API_KEY con la clave personal de acceso a la API de OpenAI.  
 
-import os
+Advertencia: No debe compartirse ni subirse a repositorios públicos.
 
-from dotenv import load_dotenv
+---
 
-from openai import OpenAI
+### hello_ai.py
+Script principal del proyecto.  
+Su función es realizar una solicitud al modelo de OpenAI con un prompt sencillo y mostrar la respuesta en consola.  
 
-Esto lo que permite es cargar en nuestro programa la llave que asignamos anteriormente.
+Carga la clave API desde el archivo .env, inicializa el cliente de OpenAI, envía un mensaje al modelo gpt-4o-mini y finalmente imprime el texto generado por la IA.  
 
+![textoGenerado](image.png)
+---
+
+### hello_ai.ipynb
+Notebook que replica el comportamiento de hello_ai.py, pero con una exploración adicional del parámetro temperature.  
+
+Permite observar cómo varía la creatividad o variabilidad de las respuestas del modelo al modificar este valor.  
+Es ideal para uso interactivo en VS Code o Jupyter Notebook.  
+
+![textoDeRespuestas](image-1.png)
+---
+
+### setup_hello_ai.ipynb
+Notebook de configuración inicial.  
+Su único propósito es instalar las dependencias necesarias del proyecto (como openai y python-dotenv).  
+
+Se ejecuta una vez al comienzo para preparar el entorno antes de trabajar con los demás notebooks.  
+
+---
+
+### Guia3_IntroAPIsAI_Notebook.ipynb
+Es el Notebook más completo del proyecto, diseñado como guía didáctica para aprender el uso básico y avanzado de la API de OpenAI.  
+
+Incluye ejemplos de:
+- Envío de prompts con diferentes parámetros.
+- Respuestas en formato estructurado (JSON) para integración con otros sistemas.
+- Manejo de errores al interpretar JSON.
+- Creación de una función genérica (ask_model) para hacer consultas personalizadas al modelo.
+
+Este notebook combina teoría, práctica y automatización, siendo una referencia para futuros proyectos que utilicen la API de OpenAI.
