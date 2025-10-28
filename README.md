@@ -64,7 +64,8 @@ Su función es realizar una solicitud al modelo de OpenAI con un prompt sencillo
 
 Carga la clave API desde el archivo .env, inicializa el cliente de OpenAI, envía un mensaje al modelo gpt-4o-mini y finalmente imprime el texto generado por la IA.  
 
-![textoGenerado](image.png)
+<img width="982" height="55" alt="image" src="https://github.com/user-attachments/assets/b02a5945-c68e-4569-83a8-db3311fc9bc2" />
+
 ---
 
 ### hello_ai.ipynb
@@ -73,7 +74,8 @@ Notebook que replica el comportamiento de hello_ai.py, pero con una exploración
 Permite observar cómo varía la creatividad o variabilidad de las respuestas del modelo al modificar este valor.  
 Es ideal para uso interactivo en VS Code o Jupyter Notebook.  
 
-![textoDeRespuestas](image-1.png)
+<img width="982" alt="image" src="https://github.com/user-attachments/assets/4dc8b92e-8589-401a-8857-9515e34982f0" />
+
 ---
 
 ### setup_hello_ai.ipynb
@@ -94,3 +96,4 @@ Incluye ejemplos de:
 - Creación de una función genérica (ask_model) para hacer consultas personalizadas al modelo.
 
 Este notebook combina teoría, práctica y automatización, siendo una referencia para futuros proyectos que utilicen la API de OpenAI.
+
